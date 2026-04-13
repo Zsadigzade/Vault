@@ -68,6 +68,7 @@ def send_alert(subject: str, body: str):
         headers={
             "Authorization": f"Bearer {RESEND_API_KEY}",
             "Content-Type": "application/json",
+            "User-Agent": "curl/8.5.0",
         },
     )
     try:
