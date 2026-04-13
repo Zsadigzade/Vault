@@ -19,6 +19,7 @@ Environment variables (set in .env or shell):
   VAULT_ROOT              — override vault root (default: parent of scripts/)
 """
 
+import gzip
 import os
 import sys
 import json
@@ -129,11 +130,13 @@ def search_brave(query: str, count: int = 5) -> list[dict]:
         url = f"https://api.search.brave.com/res/v1/web/search?q={urllib.parse.quote(query)}&count={count}&text_decorations=false"
         req = urllib.request.Request(url, headers={
             "Accept": "application/json",
-            "Accept-Encoding": "gzip",
             "X-Subscription-Token": BRAVE_API_KEY,
         })
         with urllib.request.urlopen(req, timeout=15) as resp:
-            data = json.loads(resp.read())
+            raw = resp.read()
+            if resp.headers.get("Content-Encoding") == "gzip":
+                raw = gzip.decompress(raw)
+            data = json.loads(raw)
             results = data.get("web", {}).get("results", [])
             return [{"title": r.get("title", ""), "url": r.get("url", ""), "description": r.get("description", "")} for r in results]
     except Exception as e:
