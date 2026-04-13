@@ -49,6 +49,8 @@ LEARNING_LOG = VAULT_ROOT / "07-Learning" / "LEARNING_LOG.md"
 BRAVE_API_KEY = os.environ.get("BRAVE_SEARCH_API_KEY", "")
 PERPLEXITY_API_KEY = os.environ.get("PERPLEXITY_API_KEY", "")
 SEARXNG_URL = os.environ.get("SEARXNG_URL", "http://localhost:8888")
+OLLAMA_ENDPOINT = os.environ.get("OLLAMA_ENDPOINT", "http://localhost:11434")
+OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3.3")
 
 # Minimum confidence to propose to inbox
 MIN_CONFIDENCE = 0.35
@@ -190,6 +192,47 @@ def search_searxng(query: str, count: int = 5) -> list[dict]:
         return []
 
 
+def summarize_with_ollama(query: str, search_results: dict) -> str:
+    """Use local Ollama to synthesize search results into a quality summary."""
+    brave = search_results.get("brave", [])
+    searxng = search_results.get("searxng", [])
+    snippets = []
+    for r in (brave + searxng)[:8]:
+        title = r.get("title", "")
+        desc = r.get("description", "")
+        if title or desc:
+            snippets.append(f"- {title}: {desc[:200]}")
+    if not snippets:
+        return ""
+    context = "\n".join(snippets)
+    prompt = (
+        f"You are a knowledge curator. Based on these search result snippets about '{query}', "
+        f"write a concise, high-quality summary in 4-6 bullet points. "
+        f"Focus on actionable insights, key concepts, and recent developments. "
+        f"Be specific, not generic. Use markdown bullet points.\n\n"
+        f"Search results:\n{context}\n\n"
+        f"Summary:"
+    )
+    try:
+        payload = json.dumps({
+            "model": OLLAMA_MODEL,
+            "prompt": prompt,
+            "stream": False,
+            "options": {"temperature": 0.3, "num_predict": 500},
+        }).encode()
+        req = urllib.request.Request(
+            f"{OLLAMA_ENDPOINT}/api/generate",
+            data=payload,
+            headers={"Content-Type": "application/json"},
+        )
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            data = json.loads(resp.read())
+            return data.get("response", "").strip()
+    except Exception as e:
+        print(f"  [Ollama] Error: {e}")
+        return ""
+
+
 def multi_search(query: str) -> dict:
     """Run all available search backends and merge results."""
     print(f"  Searching: {query}")
@@ -198,6 +241,7 @@ def multi_search(query: str) -> dict:
         "perplexity": {},
         "brave": [],
         "searxng": [],
+        "ollama": "",
         "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
     }
 
@@ -214,6 +258,10 @@ def multi_search(query: str) -> dict:
     # SearxNG — always try (self-hosted fallback)
     results["searxng"] = search_searxng(query, count=5)
 
+    # Ollama — summarize search results locally
+    print(f"  Summarizing with {OLLAMA_MODEL}...")
+    results["ollama"] = summarize_with_ollama(query, results)
+
     return results
 
 
@@ -224,6 +272,8 @@ def score_results(search_results: dict) -> float:
     score = 0.0
     if search_results.get("perplexity", {}).get("summary"):
         score += 0.5
+    if search_results.get("ollama"):
+        score += 0.4
     if len(search_results.get("brave", [])) >= 3:
         score += 0.25
     if len(search_results.get("searxng", [])) >= 3:
@@ -237,6 +287,13 @@ def score_results(search_results: dict) -> float:
 def synthesize_results(query: str, topic_meta: dict, search_results: dict) -> str:
     """Build markdown content for the inbox note."""
     lines = [f"# Knowledge update: {query}", ""]
+
+    # Ollama summary (local LLM synthesis)
+    ollama_summary = search_results.get("ollama", "")
+    if ollama_summary:
+        lines += ["## Summary (Ollama)", ""]
+        lines.append(ollama_summary)
+        lines.append("")
 
     # Perplexity summary (best quality)
     plex = search_results.get("perplexity", {})
