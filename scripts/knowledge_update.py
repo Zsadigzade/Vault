@@ -50,7 +50,7 @@ BRAVE_API_KEY = os.environ.get("BRAVE_SEARCH_API_KEY", "")
 PERPLEXITY_API_KEY = os.environ.get("PERPLEXITY_API_KEY", "")
 SEARXNG_URL = os.environ.get("SEARXNG_URL", "http://localhost:8888")
 OLLAMA_ENDPOINT = os.environ.get("OLLAMA_ENDPOINT", "http://localhost:11434")
-OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3.3")
+OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "qwen2.5-coder:7b")
 
 # Minimum confidence to propose to inbox
 MIN_CONFIDENCE = 0.35
