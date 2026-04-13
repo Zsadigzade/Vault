@@ -1,0 +1,118 @@
+[2026-04-13 08:54:15] === Vault sync start ===
+[2026-04-13 08:54:15] VAULT_ROOT: /srv/vault
+[2026-04-13 08:54:15] DRY_RUN: true | PULL_ONLY: false | PUSH_ONLY: true
+[2026-04-13 08:54:15] Running knowledge update...
+[2026-04-13 08:54:15] [DRY-RUN] Would run: python scripts/knowledge_update.py --max-per-run 10
+[2026-04-13 08:54:15] Staging and committing (3 inbox items, 2 learning changes)...
+[2026-04-13 08:54:15] [DRY-RUN] Would commit: chore(vault): autonomous update 2026-04-13
+
+- inbox proposals: 3 new items
+- learning log updated
+[2026-04-13 08:54:15] Pushing to remote...
+[2026-04-13 08:54:15] [DRY-RUN] Would run: git push origin main
+[2026-04-13 08:54:15] === Vault sync complete ===
+[2026-04-13 08:54:27] === Vault sync start ===
+[2026-04-13 08:54:27] VAULT_ROOT: /srv/vault
+[2026-04-13 08:54:27] DRY_RUN: false | PULL_ONLY: false | PUSH_ONLY: true
+[2026-04-13 08:54:27] Running knowledge update...
+/srv/vault/scripts/knowledge_update.py:201: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+Search backends: Brave, SearxNG
+Vault: /srv/vault
+
+
+[kb_domains]
+  [skip] AI agent frameworks 2025 best practices (searched recently)
+  [skip] prompt engineering techniques chain of thought 2025 (searched recently)
+  [skip] RAG retrieval augmented generation latest techniques (searched recently)
+  [skip] business strategy frameworks latest research (searched recently)
+  Searching: product market fit discovery signals founders
+  → Proposed: learn-2026-04-13-66ed4d1f-product-market-fit-discovery-s.md (confidence: 0.40)
+  Searching: growth loops viral coefficient product-led growth
+  → Proposed: learn-2026-04-13-6c6001e3-growth-loops-viral-coefficient.md (confidence: 0.40)
+  Searching: UI UX design trends mobile 2025
+  → Proposed: learn-2026-04-13-d3933b76-ui-ux-design-trends-mobile-202.md (confidence: 0.40)
+  Searching: deep work productivity systems builders developers
+  → Proposed: learn-2026-04-13-9f36184e-deep-work-productivity-systems.md (confidence: 0.40)
+  Searching: systems thinking mental models decision making
+  → Proposed: learn-2026-04-13-7323311e-systems-thinking-mental-models.md (confidence: 0.40)
+  Searching: behavioral economics nudge theory product design
+  → Proposed: learn-2026-04-13-5128ce81-behavioral-economics-nudge-the.md (confidence: 0.40)
+
+[bruh_stack]
+  Searching: Capacitor v8 latest changelog updates
+  → Proposed: learn-2026-04-13-c893842a-capacitor-v8-latest-changelog-.md (confidence: 0.40)
+  Searching: Supabase new features realtime postgres 2025
+  → Proposed: learn-2026-04-13-aab211b5-supabase-new-features-realtime.md (confidence: 0.40)
+  Searching: RevenueCat in-app purchase best practices 2025
+  → Proposed: learn-2026-04-13-c67cf4de-revenuecat-in-app-purchase-bes.md (confidence: 0.40)
+  Searching: Capgo OTA updates Capacitor live updates
+  → Proposed: learn-2026-04-13-e3f3aa73-capgo-ota-updates-capacitor-li.md (confidence: 0.40)
+
+✓ Done: 10 topics searched, 10 inbox proposals created
+[2026-04-13 08:55:02] Staging and committing (13 inbox items, 2 learning changes)...
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'vaultbot@ubuntu-s-2vcpu-4gb-fra1-01.(none)')
+[2026-04-13 08:55:45] === Vault sync start ===
+[2026-04-13 08:55:45] VAULT_ROOT: /srv/vault
+[2026-04-13 08:55:45] DRY_RUN: false | PULL_ONLY: false | PUSH_ONLY: true
+[2026-04-13 08:55:45] Running knowledge update...
+/srv/vault/scripts/knowledge_update.py:201: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+Search backends: Brave, SearxNG
+Vault: /srv/vault
+
+
+[kb_domains]
+  [skip] AI agent frameworks 2025 best practices (searched recently)
+  [skip] prompt engineering techniques chain of thought 2025 (searched recently)
+  [skip] RAG retrieval augmented generation latest techniques (searched recently)
+  [skip] business strategy frameworks latest research (searched recently)
+  [skip] product market fit discovery signals founders (searched recently)
+  [skip] growth loops viral coefficient product-led growth (searched recently)
+  [skip] UI UX design trends mobile 2025 (searched recently)
+  [skip] deep work productivity systems builders developers (searched recently)
+  [skip] systems thinking mental models decision making (searched recently)
+  [skip] behavioral economics nudge theory product design (searched recently)
+
+[bruh_stack]
+  [skip] Capacitor v8 latest changelog updates (searched recently)
+  [skip] Supabase new features realtime postgres 2025 (searched recently)
+  [skip] RevenueCat in-app purchase best practices 2025 (searched recently)
+  [skip] Capgo OTA updates Capacitor live updates (searched recently)
+  Searching: React 18 19 performance patterns concurrent features
+  → Proposed: learn-2026-04-13-91b056fc-react-18-19-performance-patter.md (confidence: 0.40)
+  Searching: Vite build optimization bundle size 2025
+  → Proposed: learn-2026-04-13-415e8eb5-vite-build-optimization-bundle.md (confidence: 0.40)
+  Searching: Supabase RLS row level security patterns
+  → Proposed: learn-2026-04-13-8e431c1b-supabase-rls-row-level-securit.md (confidence: 0.40)
+  Searching: mobile app push notifications best practices FCM
+  → Proposed: learn-2026-04-13-bbbc6c76-mobile-app-push-notifications-.md (confidence: 0.40)
+
+[ai_tooling]
+  Searching: Ollama new models releases benchmarks 2025
+  → Proposed: learn-2026-04-13-faaa3d03-ollama-new-models-releases-ben.md (confidence: 0.40)
+  Searching: Anthropic Claude API new features updates
+  → Proposed: learn-2026-04-13-e59928f3-anthropic-claude-api-new-featu.md (confidence: 0.40)
+  Searching: Model Context Protocol MCP servers tools 2025
+  → Proposed: learn-2026-04-13-535676d9-model-context-protocol-mcp-ser.md (confidence: 0.40)
+  Searching: multi-agent AI systems orchestration patterns
+  → Proposed: learn-2026-04-13-f1b19b49-multi-agent-ai-systems-orchest.md (confidence: 0.40)
+  Searching: local LLM inference optimization quantization GGUF
+  → Proposed: learn-2026-04-13-4c1177e1-local-llm-inference-optimizati.md (confidence: 0.40)
+  Searching: LLM benchmark MMLU HumanEval latest models comparison
+  → Proposed: learn-2026-04-13-19961607-llm-benchmark-mmlu-humaneval-l.md (confidence: 0.40)
+
+✓ Done: 10 topics searched, 10 inbox proposals created
+[2026-04-13 08:56:20] Staging and committing (23 inbox items, 4 learning changes)...
