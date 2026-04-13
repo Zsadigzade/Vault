@@ -10,11 +10,11 @@ updated: 2026-04-05
 
 ## Pre-launch TODOs
 
-- [ ] Configure **UMP** consent form for EU/GDPR (AdMob console)
-- [ ] Upload **Android keystore** to Codemagic
-- [ ] Codemagic env: `CM_KEYSTORE_PASSWORD`, `CM_KEY_ALIAS`, `CM_KEY_PASSWORD`
-- [ ] Supabase Auth → **Leaked password protection** (HaveIBeenPwned)
-- [ ] Raise **`MIN_REGIONAL_USERS`** from `1` → `5`–`10` for production ([[Regional AI Challenges]])
+- [x] Configure **UMP** consent form for EU/GDPR (AdMob console) — **DONE 2026-04-13**
+- [x] Upload **Android keystore** to Codemagic — **DONE** (`android_signing` group: `CM_KEYSTORE_PASSWORD`, `CM_KEY_ALIAS`, `CM_KEY_PASSWORD`, `BRUH_KEYSTORE`)
+- [x] **Codemagic env vars** — **DONE 2026-04-13**: all 5 Vite public vars (`VITE_SUPABASE_URL/ANON_KEY`, `VITE_SENTRY_DSN`, `VITE_POSTHOG_KEY/HOST`) added to both workflows; `secrets` group imported for `SENTRY_AUTH_TOKEN` source map uploads; `sentryVitePlugin` guarded behind `!!SENTRY_AUTH_TOKEN`
+- [x] **`MIN_REGIONAL_USERS`** — already `5` in `generate-regional-challenges/index.ts` ([[Regional AI Challenges]])
+- [ ] Supabase Auth → **Leaked password protection** (HaveIBeenPwned) — **DEFERRED**: only matters for premium tier; remind when premium goes live
 - [ ] **`landing/u.html`**: confirm App Store numeric ID in `apple-itunes-app` meta if still placeholder ([[Deep Links & PWA]])
 
 ### Recurring: Apple Sign In JWT renewal

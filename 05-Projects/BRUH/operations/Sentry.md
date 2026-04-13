@@ -23,9 +23,19 @@ updated: 2026-04-05
 
 ## Client (`src/main.tsx`)
 
-- Initialize only when `VITE_SENTRY_DSN` is set and **`import.meta.env.PROD`**.  
-- **ignoreErrors:** e.g. service worker registration noise on localhost.  
+- Initialize only when `VITE_SENTRY_DSN` is set and **`import.meta.env.PROD`**.
+- Loaded fully async (dynamic import) — never blocks rendering.
+- Sets `platform` tag: `ios` / `android` / `pwa` via `Capacitor.getPlatform()`.
+- **ignoreErrors:** service worker registration noise, malformed URLs stripped in `beforeSend`.
 - Helpers: `src/lib/errorLogging.ts`, `src/lib/sentryUser.ts`.
+
+## Source maps (`vite.config.ts`)
+
+- `build.sourcemap: 'hidden'` — maps generated but `sourceMappingURL` comment omitted from bundles (browsers can't access them).
+- `sentryVitePlugin` uploads maps on `npm run build` **only when `SENTRY_AUTH_TOKEN` is set** (guarded: `!!process.env.SENTRY_AUTH_TOKEN`).
+- CI: `SENTRY_AUTH_TOKEN` in Codemagic `secrets` group — see [[Codemagic CI]].
+- Local builds: warn if token missing, continue without upload.
+- Token scopes required: `project:read` + `release:admin`.
 
 ---
 

@@ -76,6 +76,15 @@ Branch: **`design/new-ui`** (pushed, not merged to `main`). Build clean. Switch:
 - **Supabase SSH docs:** `ssh supabase.sh <cmd>` for live docs — in `CLAUDE.md` + `.cursor/rules/bruh-project-memory.mdc`.
 - **iOS:** Mac/Xcode device run for push + native ads still pending.
 
+## Apr 2026-04-13 session changes (CI + vault server)
+
+| Area | Change |
+|------|--------|
+| **Codemagic env vars** | All 5 Vite public vars + `secrets` group added to both workflows — `.env` is gitignored, Codemagic never saw them before |
+| **Sentry source maps** | `sentryVitePlugin` guarded `!!SENTRY_AUTH_TOKEN`; `secrets` group with token in Codemagic UI |
+| **`.claude/worktrees/`** | Phantom gitlink removed from index; `.claude/worktrees/` added to `.gitignore` |
+| **DO vault server** | Removed llama3.3 (42 GB) + qwen2.5-coder:7b (4.7 GB) — disk 80% → 23%; fixed `/var/log/vault-*.log` ownership (vaultbot); fixed `.git` ownership (`chown -R vaultbot:vaultbot /srv/vault`); added root git safe.directory + identity |
+
 ## Pending decisions
 
 - None recorded.
@@ -86,9 +95,9 @@ Branch: **`design/new-ui`** (pushed, not merged to `main`). Build clean. Switch:
 
 ## Next steps
 
-1. **Google Search Console** — URL Inspection → Request Indexing for `https://bruhsocial.app/` and `https://bruhsocial.app/faq.html`.
-2. Mac/Xcode: archive or device; confirm push + native ads.
-3. **`npm run test`** — verify no regressions from chat / GIF search changes.
+1. Mac/Xcode: archive or device; confirm push + native ads.
+2. **Leaked password protection** (Supabase Auth) — deferred until premium live.
+3. Monitor vault cron — next run Tue 9am; review with `/approve-inbox`.
 
 ## See also
 

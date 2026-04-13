@@ -39,9 +39,35 @@ updated: 2026-04-05
 
 ## Android
 
-- Keystore: upload to Codemagic; env vars `CM_KEYSTORE_PASSWORD`, `CM_KEY_ALIAS`, `CM_KEY_PASSWORD` — see [[Launch Checklist]].  
+- Keystore: `android_signing` group in Codemagic UI — `CM_KEYSTORE_PASSWORD`, `CM_KEY_ALIAS`, `CM_KEY_PASSWORD`, `BRUH_KEYSTORE` (file). ✅ Configured.
 - **google-services.json** in repo for FCM (Android build).
 - **`PACKAGE_NAME` / applicationId:** must be **`com.bruh.app`** in `codemagic.yaml` / Gradle (2026-04 repo fix — was incorrectly `app.bruh.social`-style id).
+
+---
+
+## Environment variables (fixed 2026-04-13)
+
+`.env` is gitignored — Codemagic never sees it. All vars must be declared in `codemagic.yaml` or Codemagic UI groups.
+
+### Public vars (inline in `codemagic.yaml` — both workflows)
+
+| Var | Value |
+|-----|-------|
+| `VITE_LANDING_URL` | `https://share.bruhsocial.app` |
+| `VITE_SUPABASE_URL` | `https://gpainqlxdakaczkgozko.supabase.co` |
+| `VITE_SUPABASE_ANON_KEY` | (anon key — safe to commit) |
+| `VITE_SENTRY_DSN` | (EU ingest DSN — safe to commit) |
+| `VITE_POSTHOG_KEY` | `phc_aTv83kLWjx9JUKFiEoRexOKAD8KM9BOBOzvKBnb3YM3` |
+| `VITE_POSTHOG_HOST` | `https://eu.i.posthog.com` |
+
+### Secret groups (Codemagic UI)
+
+| Group | Vars | Used in |
+|-------|------|---------|
+| `android_signing` | `CM_KEYSTORE_*`, `BRUH_KEYSTORE` | Android workflow |
+| `secrets` | `SENTRY_AUTH_TOKEN` | Both workflows — source map upload |
+
+`SENTRY_AUTH_TOKEN` scopes: `project:read` + `release:admin`. Token in Codemagic UI → `secrets` group. `sentryVitePlugin` in `vite.config.ts` is guarded: `!!process.env.SENTRY_AUTH_TOKEN` — skips gracefully if missing.
 
 ---
 
