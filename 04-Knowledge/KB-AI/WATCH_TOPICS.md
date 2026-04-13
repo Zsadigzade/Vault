@@ -27,6 +27,14 @@ watch_topics:
       proposed_path: "04-Knowledge/KB-Science/Behavior-Model-Fogg.md"
 
   bruh_stack:
+    - query: "AdMob mediation waterfall optimization eCPM 2025"
+      proposed_path: "05-Projects/BRUH/features/Monetization.md"
+    - query: "iOS App Store review guidelines updates 2025"
+      proposed_path: "05-Projects/BRUH/security/App Review History.md"
+    - query: "Codemagic CI iOS signing automation best practices"
+      proposed_path: "05-Projects/BRUH/deployment/Codemagic CI.md"
+    - query: "Sentry error monitoring React Native mobile 2025"
+      proposed_path: "05-Projects/BRUH/operations/Sentry.md"
     - query: "Capacitor v8 latest changelog updates"
       proposed_path: "05-Projects/BRUH/reference/10 - Coding Patterns & Preferences.md"
     - query: "Supabase new features realtime postgres 2025"
@@ -45,6 +53,10 @@ watch_topics:
       proposed_path: "05-Projects/BRUH/features/Push Notifications.md"
 
   ai_tooling:
+    - query: "Claude Code CLI agentic coding workflows 2025"
+      proposed_path: "04-Knowledge/KB-AI/Claude Code CLI Reference.md"
+    - query: "Cursor AI IDE features rules MCP integration 2025"
+      proposed_path: "04-Knowledge/KB-AI/Cursor Tips & Power Features.md"
     - query: "Ollama new models releases benchmarks 2025"
       proposed_path: "04-Knowledge/KB-AI/Local-LLM-Ollama-Patterns.md"
     - query: "Anthropic Claude API new features updates"
@@ -63,6 +75,12 @@ watch_topics:
       proposed_path: "04-Knowledge/KB-AI/RAG-Knowledge-Retrieval.md"
 
   competitive_market:
+    - query: "indie app developer marketing social media growth"
+      proposed_path: "04-Knowledge/KB-Business/Go-To-Market-Channels.md"
+    - query: "SaaS pricing strategy freemium subscription conversion"
+      proposed_path: "04-Knowledge/KB-Business/Pricing-Strategy.md"
+    - query: "founder mental health burnout resilience strategies"
+      proposed_path: "04-Knowledge/KB-Productivity/Deep-Work-Newport.md"
     - query: "social app growth strategies viral retention 2025"
       proposed_path: "04-Knowledge/KB-Business/Growth-Loops.md"
     - query: "mobile app monetization trends in-app purchase subscriptions"
