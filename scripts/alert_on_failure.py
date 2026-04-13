@@ -15,7 +15,7 @@ def send_alert(subject: str, body: str):
         print("Missing RESEND_API_KEY or ALERT_EMAIL")
         sys.exit(1)
     payload = json.dumps({
-        "from": "vaultbot@bruhsocial.app",
+        "from": "alerts@bruhsocial.app",
         "to": [ALERT_EMAIL],
         "subject": subject,
         "text": body,
