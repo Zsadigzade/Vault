@@ -224,3 +224,10 @@ Separate from AdMob — the subscription upsell modal:
 - [[Dashboards]]
 - [[Personal Media & GIFs]] (premium gates)
 - [[🏠 Home]]
+
+## RevenueCat Best Practices — 2026-04-13
+
+- **External purchases** — Apple + Google now allow external purchase flows in specific regions/categories; varying fees
+- **State of Subscription Apps 2025** — constant A/B testing essential; try different price points, avoid analysis paralysis
+- **Web purchases** — app-to-web flows allowed in EU (DMA); requires entitlement linking via RevenueCat
+- Source: [RevenueCat app-to-web guide](https://www.revenuecat.com/blog/engineering/app-to-web-purchase-guidelines/), [State of Subscription Apps 2025](https://www.revenuecat.com/state-of-subscription-apps-2025/)

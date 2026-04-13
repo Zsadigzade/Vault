@@ -92,3 +92,11 @@ flowchart TD
 ## See also
 
 - [[Rules & Skills Authoring]] · [[Claude Code CLI Reference]] · [[Context Window Management]]
+
+## Agent Frameworks — 2026-04-13
+
+- **LangChain / LangGraph** — enterprise pipelines; LangGraph adds stateful graph-based flow for complex branching
+- **AutoGen** — multi-agent conversations; agents negotiate task completion autonomously
+- **OpenAI Agents SDK** — structured outputs + handoffs; built-in tracing; get multi-agent running in 15 min
+- **LlamaIndex** — document-heavy RAG-first agents; best when corpus is the core
+- Rule: LangGraph for orchestration complexity; OpenAI SDK for structured tool use; LlamaIndex for knowledge retrieval

@@ -101,3 +101,11 @@ User engages with feature
 - Reforge, *Reforge Growth Series* (reforge.com) — Growth Loops framework
 - Andrew Chen, *The Cold Start Problem* (Harper Business, 2021) — network effects
 - Related: [[Unit-Economics-and-SaaS-Metrics]], [[Product-Market-Fit-and-Discovery]]
+
+## Viral & PLG Metrics — 2026-04-13
+
+- **Viral coefficient (K)** — K > 1 = geometric growth; K < 1 = linear; track by cohort not overall average
+- **Product-led growth** — user generates content → shared externally → new users discover → loop closes
+- **PLG vs sales-led** — PLG: lower CAC, longer ramp; sales-led: faster enterprise revenue, higher CAC
+- **Mixpanel 2026 PLG guide** — add virality measurement by cohort; virality often improves as product matures
+- Source: [ProdPad growth loops](https://www.prodpad.com/blog/growth-loops/), [Mixpanel PLG 2026](https://mixpanel.com/blog/product-led-growth/)

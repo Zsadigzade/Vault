@@ -53,3 +53,11 @@ Project wiring: [[12 - MCP & External APIs]] · [[Agent MCP — live verificatio
 ## See also
 
 - [[Secrets Management Guide]] · [[Cursor Tips & Power Features]]
+
+## MCP Status — 2026-04-13
+
+- **Spec version**: `2025-11-25` (latest) — previous `2025-06-18` still supported
+- **OpenAI adopted MCP** officially across all products including ChatGPT
+- **Tool annotations** — treat as untrusted unless from a trusted server (spec security note)
+- **PHP SDK** now available at `modelcontextprotocol/servers` GitHub repo
+- Reference: [official spec](https://modelcontextprotocol.io/specification/2025-11-25), [servers repo](https://github.com/modelcontextprotocol/servers)

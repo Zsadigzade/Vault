@@ -120,3 +120,11 @@ Android requires notification channels for Android 8.0+. Channels defined in `an
 
 - [[Chat System]]
 - [[Edge Functions]]
+
+## FCM Best Practices — 2026-04-13
+
+- **Notification channels** — required for Android 8.0+; always create named channels with appropriate importance
+- **FCM token storage** — store securely server-side; refresh and re-register on token rotation
+- **In-app suppression** — suppress notification display if user already in the relevant thread/screen
+- **Notification fatigue** — balance frequency; opt-outs spike when users feel overloaded
+- Source: [Braze push best practices](https://www.braze.com/resources/articles/push-notifications-best-practices), [Zignuts FCM Android guide](https://www.zignuts.com/blog/implement-push-notifications-in-android)

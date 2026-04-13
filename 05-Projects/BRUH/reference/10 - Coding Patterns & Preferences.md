@@ -318,3 +318,10 @@ Chrome WebView 90 / Android 11 lacks this method natively.
 - [[Agent Quick Reference]]
 - [[Critical Gotchas]]
 - [[🏠 Home]]
+
+## Capacitor v8 — 2026-04-13
+
+- **iOS SPM projects** — Capacitor CLI now creates Swift Package Manager projects by default (v8)
+- **`--live-reload` fix** — CLI no longer overwrites `config.server` section with live reload config
+- **Non-macOS update** — `cap update` can now run on non-macOS machines
+- Source: [Capacitor 8 announcement](https://ionic.io/blog/announcing-capacitor-8), [v8 migration guide](https://capacitorjs.com/docs/updating/8-0)

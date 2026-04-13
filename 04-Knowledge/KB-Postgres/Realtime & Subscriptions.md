@@ -46,3 +46,11 @@ updated: 2026-04-04
 ## See also
 
 - [[Supabase Security Hardening]] · [[Query Patterns & Anti-Patterns]]
+
+## Supabase Realtime Updates — 2026-04-13
+
+- **Log Drains** (Pro tier) — stream Postgres/Auth/Storage/Edge/Realtime logs to Datadog, Grafana Loki, Sentry, Axiom, S3
+- **Broadcast** — send messages to connected clients without DB persistence; lowest latency
+- **Presence** — track online users per channel; shared state across clients
+- **Postgres Changes** — listen to INSERT/UPDATE/DELETE via websockets; note: RLS applies per-row
+- Source: [Supabase changelog](https://supabase.com/changelog), [Realtime docs](https://supabase.com/docs/guides/realtime)

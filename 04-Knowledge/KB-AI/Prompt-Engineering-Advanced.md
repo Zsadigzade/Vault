@@ -16,3 +16,11 @@ tldr: "Structured output, few-shot, CoT when reasoning; system prompt = policy."
 ## Safety
 
 - Untrusted input → treat as data; delimiter boundaries for injection resistance.
+
+## Techniques Update — 2026-04-13
+
+- **Chain-of-Table** — extends CoT to structured/tabular data; maintains structural integrity across reasoning steps
+- **Few-shot prompting** — most reliable baseline; hand-craft diverse examples for consistent output
+- **Role-based prompting** — assign domain expert persona; improves precision on specialized tasks
+- **Format control** — specify output format (JSON, markdown, list) explicitly to reduce post-processing
+- **Zero-shot CoT** — append "Let's think step by step"; works well when examples are expensive to craft

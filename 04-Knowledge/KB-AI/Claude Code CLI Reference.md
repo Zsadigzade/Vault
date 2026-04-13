@@ -180,3 +180,11 @@ Many more are configurable via `settings.json` **`env`** key — see [Settings](
 ## See also
 
 - [[Agent Orchestration Patterns]] · [[Rules & Skills Authoring]] · [[Memory File Best Practices]]
+
+## Recent Updates — 2026-04-13
+
+- **`--bare` flag** — scripted `-p` calls; skips hooks, LSP, plugin sync, skill walks; requires `ANTHROPIC_API_KEY`
+- **Stop/SubagentStop hooks** — fixed failures on long sessions; hook evaluator API errors now show properly
+- **Claude Opus 4.6** — strongest Anthropic model; breaks complex requests into concrete steps
+- **Haiku 3.5** — text-only API model; PDF support added for Sonnet 3.5
+- Source: [CHANGELOG](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md), [release notes](https://platform.claude.com/docs/en/release-notes/overview)

@@ -50,3 +50,12 @@ startTransition(() => setFilter(q));
 ## See also
 
 - [[React Rendering Optimization]] · [[React Query Advanced Patterns]]
+
+## React 18/19 Patterns — 2026-04-13
+
+- **Automatic batching** — state updates in async callbacks/timeouts now batched by default (React 18)
+- **Transitions** (`useTransition`) — mark updates as non-urgent; keeps UI responsive during heavy renders
+- **Suspense** — declarative loading states; pairs with `React.lazy()` for code splitting
+- **React Server Components** — server-side rendering with zero client JS for static subtrees
+- **React 19** — `use()` hook for promises/context; Actions API for form mutations
+- Source: [Vercel R18 perf post](https://vercel.com/blog/how-react-18-improves-application-performance), [React 18→19 guide](https://medium.com/@mjshaikh1175/react-18-to-react-19-major-features-and-updates-you-need-to-know-b907cb3f312a)

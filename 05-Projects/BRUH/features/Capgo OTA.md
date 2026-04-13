@@ -103,3 +103,10 @@ CLI: `node scripts/bruhSemver.mjs --from X.Y.Z` prints next version only. Repo *
 - [[Dashboards]]
 - [[Edge Functions]]
 - [[🏠 Home]]
+
+## Capgo Patterns — 2026-04-13
+
+- **Full OTA journey tracking** — checks, downloads, installs, policy blocks, rollbacks all logged; debug in seconds
+- **Delta updates** — only JS/HTML/CSS diffs sent; reduces update payload size significantly
+- **`notifyAppReady()`** — call after app initialization; tells Capgo SDK app is stable (prevents rollback)
+- Source: [Capgo live updates docs](https://capgo.app/docs/live-updates/), [capacitor-updater GitHub](https://github.com/Cap-go/capacitor-updater)

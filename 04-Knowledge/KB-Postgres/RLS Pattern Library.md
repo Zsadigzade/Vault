@@ -54,3 +54,11 @@ WITH CHECK (user_id = auth.uid());
 ## See also
 
 - [[Supabase Security Hardening]] · [[Query Patterns & Anti-Patterns]]
+
+## Production Patterns — 2026-04-13
+
+- **Auto-enable RLS** — create event trigger on table creation to enable RLS automatically for new tables
+- **SECURITY DEFINER RPCs** — bypass RLS for admin operations; use `get_my_user_id()` pattern for custom auth
+- **Multi-tenant policies** — separate policies per role; avoid `USING (true)` on any write operation
+- **Performance** — `(select auth.uid())` in policies is cached per query; avoid calling in loop
+- Source: [Supabase official docs](https://supabase.com/docs/guides/database/postgres/row-level-security), [makerkit production patterns Jan 2026](https://makerkit.dev/blog/tutorials/supabase-rls-best-practices)

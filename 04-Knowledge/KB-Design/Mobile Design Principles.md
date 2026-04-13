@@ -67,3 +67,11 @@ Hybrid apps: pick **one** primary pattern per flow; don’t mix paradigms in one
 - [[Typography & Readability]] · [[Social App UI Patterns]] · [[Animation & Micro-interactions]] · [[Accessibility on Mobile (WCAG)]]
 - [[Design Systems & Component Patterns]] · [[Curated GitHub Repositories]] § Design system components
 - Project: [[User Preferences & Style]] · [[Keyboard & Layout]]
+
+## UI/UX Trends 2025/2026 — 2026-04-13
+
+- **Liquid Glass (iOS 26 / WWDC 2025)** — Apple introduced across iOS 26, macOS Tahoe; translucent layered surfaces replacing flat cards
+- **Bento layouts** — iOS 17 widgets + Fluent UI set the stage; grid-based modular information display
+- **Expressive typography** — large headlines, custom fonts, striking text layouts as primary design element
+- **AI-driven personalization** — dynamic UI adapting to user behavior; companies without this falling behind
+- Source: [Chop Dawg 2025](https://www.chopdawg.com/ui-ux-design-trends-in-mobile-apps-for-2025/), [DEV.to complete guide](https://dev.to/krlz/mobile-app-trends-2025-the-complete-developer-guide-to-uiux-ai-and-beyond-5265)
