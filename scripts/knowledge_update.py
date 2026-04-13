@@ -225,7 +225,7 @@ def summarize_with_ollama(query: str, search_results: dict) -> str:
             data=payload,
             headers={"Content-Type": "application/json"},
         )
-        with urllib.request.urlopen(req, timeout=120) as resp:
+        with urllib.request.urlopen(req, timeout=300) as resp:
             data = json.loads(resp.read())
             return data.get("response", "").strip()
     except Exception as e:
