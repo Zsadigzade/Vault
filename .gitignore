@@ -1,0 +1,17 @@
+# Obsidian
+.trash/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Optional: exclude local workspace state (uncomment if you do not want machine-specific UI in git)
+# .obsidian/workspace.json
+# .obsidian/workspace-mobile.json
+
+# Secrets — never commit
+*.pem
+.env
+.env.*
+!.env.example

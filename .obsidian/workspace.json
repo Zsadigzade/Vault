@@ -1,0 +1,228 @@
+{
+  "main": {
+    "id": "0ae31e4654ea5eb5",
+    "type": "split",
+    "children": [
+      {
+        "id": "bcf3f5146fa3d429",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0126050c8db32cb6",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2ab865fc083c451c",
+    "type": "split",
+    "children": [
+      {
+        "id": "79728272dee7f062",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c096617ad8d406b3",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "9f40c8c7549fbae9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "36311f68531e8410",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "right": {
+    "id": "0d086c61e816809f",
+    "type": "split",
+    "children": [
+      {
+        "id": "01fbb409c340744f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "aabb65610807c476",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "c70f470a51defaeb",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Welcome.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Welcome"
+            }
+          },
+          {
+            "id": "35440a6ac087254b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "e276ba1309c790a1",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "4c914a8dbefa6461",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Welcome.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Welcome"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "0126050c8db32cb6",
+  "lastOpenFiles": [
+    "01-Agents/SESSION_HANDOFF.md",
+    "scripts/vault_health.py",
+    "scripts/vault_health.py.tmp.17952.1776037972545",
+    "scripts/approve_inbox.py",
+    "scripts/approve_inbox.py.tmp.17952.1776037934578",
+    "scripts/run_workflow.py",
+    "scripts",
+    "Templates/Weekly Review Template.md",
+    "Templates/Weekly Review Template.md.tmp.17952.1776037851816",
+    "Templates/Inbox Capture Template.md",
+    "Templates/Inbox Capture Template.md.tmp.17952.1776037838884",
+    "Templates/Knowledge Note Template.md",
+    "Templates/Knowledge Note Template.md.tmp.17952.1776037830861",
+    "07-Learning/summaries/README.md",
+    "07-Learning/summaries",
+    "07-Learning/patterns-discovered/README.md",
+    "05-Projects/PROJECTS_INDEX.md",
+    "03-Brainstorm/BRAINSTORM_INDEX.md",
+    "03-Brainstorm/synthesis/Evaluation-Rubric.md",
+    "00-Brain/AGENT_CONTEXT_BUDGET.md",
+    "06-Inbox/pending/health-report-2026-04-13.md",
+    "Templates/Brainstorm session.md",
+    "Templates/Agent Role.md",
+    "Templates/Workflow.md",
+    "Templates/Project Bootstrap.md",
+    "04-Knowledge/_Sources/CITATION_BLOCK.md",
+    "04-Knowledge/SOURCE_REGISTRY.md",
+    "04-Knowledge/_Sources/README.md",
+    "00-Brain/GIT_IMPORT_PROTOCOL.md",
+    "04-Knowledge/KB-AI/RAG-Knowledge-Retrieval.md",
+    "04-Knowledge/KB-AI/Local-LLM-Ollama-Patterns.md",
+    "04-Knowledge/KB-AI/Prompt-Engineering-Advanced.md",
+    "04-Knowledge/KB-AI/Multi-Agent-System-Design.md",
+    "04-Knowledge/KB-Productivity/Energy-and-Ultradian-Rhythms.md",
+    "04-Knowledge/KB-Productivity/Weekly-Review-and-Cadence.md",
+    "04-Knowledge/KB-Productivity/Zettelkasten-Method.md",
+    "caveman-main/caveman-main/plugins/caveman/skills/caveman/assets/caveman-small.svg",
+    "caveman-main/caveman-main/plugins/caveman/skills/caveman/assets/caveman.svg",
+    "caveman-main/caveman-main/plugins/caveman/assets/caveman.svg",
+    "caveman-main/caveman-main/plugins/caveman/assets/caveman-small.svg",
+    "Untitled.canvas",
+    "Untitled 2.canvas",
+    "Untitled 1.canvas"
+  ]
+}

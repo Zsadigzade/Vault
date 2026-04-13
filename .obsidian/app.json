@@ -1,0 +1,15 @@
+{
+  "strictLineBreaks": false,
+  "readableLineLength": true,
+  "showLineNumber": false,
+  "showFrontmatter": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "00 - Meta",
+  "attachmentFolderPath": "attachments",
+  "useTabIndent": true,
+  "tabSize": 2,
+  "legacyEditor": false,
+  "livePreview": true,
+  "defaultViewMode": "source",
+  "alwaysUpdateLinks": true
+}
