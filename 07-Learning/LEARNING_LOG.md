@@ -161,3 +161,28 @@ _Append dated bullets._
 - query: `LLM benchmark MMLU HumanEval latest models comparison`
 - confidence: 0.40
 - status: proposed
+
+## 2026-04-13T09:38:44.807353 | ai_tooling
+- query: `Claude Code CLI agentic coding workflows 2025`
+- confidence: 0.40
+- status: proposed
+
+## 2026-04-13T09:41:44.747974 | ai_tooling
+- query: `Claude Code CLI agentic coding workflows 2025`
+- confidence: 0.40
+- status: proposed
+
+## 2026-04-13T09:55:56.780041 | ai_tooling
+- query: `Claude Code CLI agentic coding workflows 2025`
+- confidence: 0.40
+- status: proposed
+
+## 2026-04-13T09:58:59.693909 | ai_tooling
+- query: `Claude Code CLI agentic coding workflows 2025`
+- confidence: 0.80
+- status: proposed
+
+## 2026-04-13T10:00:43.975974 | ai_tooling
+- query: `Claude Code CLI agentic coding workflows 2025`
+- confidence: 0.80
+- status: proposed
