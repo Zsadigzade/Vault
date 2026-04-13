@@ -51,7 +51,7 @@ PERPLEXITY_API_KEY = os.environ.get("PERPLEXITY_API_KEY", "")
 SEARXNG_URL = os.environ.get("SEARXNG_URL", "http://localhost:8888")
 
 # Minimum confidence to propose to inbox
-MIN_CONFIDENCE = 0.55
+MIN_CONFIDENCE = 0.35
 
 # Deduplicate: skip topics searched within this many days
 SEARCH_COOLDOWN_DAYS = 3
