@@ -68,6 +68,7 @@ Also use **Cursor-managed** MCPs when present (e.g. **user-supabase**, marketpla
 | **GitHub** | `https://api.github.com` | `GITHUB_TOKEN` | Owner: `Zsadigzade`, Repo: `BRUH` |
 | **Vercel** | Vercel API | `VERCEL_AUTH_TOKEN` | Two projects: `admin-web/` + `dashboard/` |
 | **Resend** | Resend API | `re_...` key | Prod edge uses Supabase secrets |
+| **CodeScene** | `https://api.codescene.io/v2` | `Authorization: Bearer <PAT>` | Project `79074` · PAT in `.cursor/.env.mcp.local` as `CODESCENE_TOKEN` |
 | **Netlify** | `https://api.netlify.com` | `Authorization: Bearer <token>` | Token in `%APPDATA%\Netlify\Config\config.json` |
 | **UptimeRobot** | Hosted MCP `https://mcp.uptimerobot.com/mcp` | Main or read-only API key | Env: `UPTIMEROBOT_API_KEY` in `.cursor/.env.mcp.local`; `mcp.json` → `node .cursor/servers/uptimerobot.mjs` |
 

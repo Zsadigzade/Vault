@@ -183,7 +183,7 @@ Custom Capacitor plugin (`NativeAdPlugin`) wrapping Google Mobile Ads Native Adv
 
 ### Resolved
 - ✅ **UMP consent form** configured (AdMob console) — 2026-04-13
-- ✅ **app-ads.txt** — `google.com, pub-1146372347903589, DIRECT, f08c47fec0942fa0` added as first entry — 2026-04-14 (commit `a435e3b`). Live at `https://bruhsocial.app/app-ads.txt` (307 entries). AdMob re-crawl pending; allow up to 24h.
+- ✅ **app-ads.txt** — `google.com, pub-1146372347903589, DIRECT, f08c47fec0942fa0` added as first entry — 2026-04-14 (commit `a435e3b`). Live at `https://bruhsocial.app/app-ads.txt` (307 entries). **AdMob verified ✅ 2026-04-14.**
 
 ## AdMob Mediation — 2026-04-14
 
