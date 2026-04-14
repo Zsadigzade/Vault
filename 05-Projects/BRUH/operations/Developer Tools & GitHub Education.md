@@ -28,7 +28,7 @@ updated: 2026-04-14
 | **Codecov** | Coverage reporting on ~161 Vitest tests; CI integration | GitHub Education | Connect to `Zsadigzade/BRUH`; upload token in CI (Codemagic) |
 | **POEditor** | Localization pipeline for i18n — proper translator workflow | Free Plus 1yr GitHub Education | i18n already exists in repo; POEditor gives structured key management + export |
 | **Imgbot** | Auto-optimizes images in repo via PRs — zero effort | GitHub Education (free) | Runs automatically on push; submits optimization PRs |
-| **CodeScene** | Tech debt analysis, code quality, hotspot detection on private repo | 6mo free GitHub Education | Project `79074`; 10 files refactored on `copilot/current-version-20260413` |
+| **CodeScene** | Tech debt analysis, code quality, hotspot detection on private repo | 6mo free GitHub Education | Project `79074`; API `https://api.codescene.io/v2` · Bearer token; hotspot fixes 2026-04-14 (see below) |
 | **GitLens** | Git blame / history / codelens in VS Code | Free 6mo GitHub Education | VS Code extension; use for authorship + history while editing |
 | **Termius** | SSH client for mobile — connects to DO vault server | Free Pro GitHub Education | DO server: `46.101.161.176` · `root` + `id_ed25519` · detail: [[DO Vault Server]] |
 
@@ -75,6 +75,34 @@ doppler run --project bruh --config dev -- npm run dev
 1. Add `CODECOV_TOKEN` to Codemagic `secrets` group
 2. Add coverage upload step to Codemagic workflow after `npm run test`
 3. Badge in `README.md`
+
+---
+
+## CodeScene — Hotspot Refactors (2026-04-14)
+
+API: `GET https://api.codescene.io/v2/projects/79074/hotspots/code-health-details`  
+Auth: `Authorization: Bearer <CODESCENE_TOKEN>` (token in `.cursor/.env.mcp.local`)
+
+### Files refactored
+
+| File | Health before | Smells fixed |
+|------|--------------|-------------|
+| `src/lib/passwordAuth.ts` | 5.80 → 6.59 | Extracted `callSuccessRpc` helper (3× duplicated RPC pattern); `getLocalCredentials` helper |
+| `src/components/screens/PostDetail.tsx` | 5.75 | Merged `CardItem`/`GridItem` → `ReplyItem`; `buildItemList(replies, adInterval, noAds)` replaces two identical memos; `handleApprove`+`handleReject` → `handleModerate(id, action)` |
+| `src/components/screens/MemeReplyPicker.tsx` | 4.29 | `handleBackAction` `useCallback` eliminates duplicate nested conditional in Capacitor back-button + iOS swipe guard effects; `getSendValidationError(senderId, memeTitle)` extracted outside component, reduces `handleSend` cyclomatic complexity |
+
+### TypeScript bug found during PostDetail fix
+
+`useInfiniteQuery<TQueryFnData>` in RQ v5 — when only `TQueryFnData` is specified, TypeScript collapses `TData` to `never` (overload constraint failure). `postInfinite?.pages` errors with `Property 'pages' does not exist on type 'never'`.
+
+**Fix pattern:**
+```ts
+// ✅ Separate raw + cast to break the inference deadlock
+const { data: postInfiniteRaw, ... } = useInfiniteQuery<PostDetailPage>({ ... });
+const postInfinite = postInfiniteRaw as InfiniteData<PostDetailPage> | undefined;
+```
+
+See also `reference/11 - Bug History & Lessons.md`.
 
 ---
 

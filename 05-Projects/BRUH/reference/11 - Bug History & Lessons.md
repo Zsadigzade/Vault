@@ -1,12 +1,33 @@
 ---
 tags: [history, bugs, decisions, lessons, non-obvious]
 area: reference
-updated: 2026-04-05
+updated: 2026-04-14
 ---
 
 # Bug History & Lessons
 
 > [!note] Non-obvious decisions, root-caused bugs, and institutional knowledge. Read before attempting similar changes.
+
+---
+
+## React Query v5 `useInfiniteQuery` TypeScript Inference (2026-04-14)
+
+**Symptom**: `Property 'pages' does not exist on type 'never'` on `data?.pages` after destructuring `useInfiniteQuery`.
+
+**Root cause**: In RQ v5, specifying only `<TQueryFnData>` leaves `TPageParam = unknown` (default). The overload constraint check then collapses `TData` to `never` — TypeScript can't satisfy all 5 type params simultaneously when inferring from the options object alone.
+
+**Fix pattern** (use in any new `useInfiniteQuery` call):
+```ts
+// Separate raw + explicit cast — breaks the inference deadlock
+const { data: rawData, isPending, ... } = useInfiniteQuery<PostDetailPage>({
+  initialPageParam: undefined as FetchRepliesPageCursor | undefined,
+  queryFn: ({ pageParam }) => fetchPage(postId, pageParam as FetchRepliesPageCursor | undefined),
+  ...
+});
+const data = rawData as InfiniteData<PostDetailPage> | undefined;
+```
+
+**Avoid**: explicit `queryFn: (): Promise<PostDetailPage> => ...` return annotation — doesn't help; v5 overload resolution ignores it.
 
 ---
 
