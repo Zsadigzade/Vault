@@ -32,3 +32,8 @@ _Append rows; prefer table or bullet list per entry._
 - topics_processed: 1
 - proposals_created: 1
 - dry_run: False
+
+## Knowledge update — 2026-04-14T08:50:01.112856
+- topics_processed: 10
+- proposals_created: 10
+- dry_run: False

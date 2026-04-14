@@ -146,3 +146,9 @@ Vault: /srv/vault
 To github.com:Zsadigzade/Vault.git
    8a28bca..b8ef77c  main -> main
 [2026-04-13 08:56:22] === Vault sync complete ===
+[2026-04-14 08:53:27] === Vault sync start ===
+[2026-04-14 08:53:27] VAULT_ROOT: /srv/vault
+[2026-04-14 08:53:27] DRY_RUN: false | PULL_ONLY: false | PUSH_ONLY: true
+[2026-04-14 08:53:27] Running knowledge update...
+/srv/vault/scripts/knowledge_update.py:245: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
