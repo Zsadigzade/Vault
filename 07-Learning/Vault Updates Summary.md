@@ -14,6 +14,16 @@ updated: 2026-04-14
 
 ---
 
+## 2026-04-14 — BRUH `main` + branch cleanup (vault sync)
+
+| Topic | Notes |
+|-------|--------|
+| **Repo** | Merged **`copilot/current-version-20260413`** into **`main`** (`ff86946`); remote copilot branch removed. Deleted **`gemini-integration`**; removed **`claude/agitated-johnson`** worktree + branch. |
+| **Kept on origin** | **`security/enhancements`** (unmerged security/RBAC experiment — not dropped). **`design/new-ui`**, **`imgbot`**, **`main`**. |
+| **Vault** | [[SESSION_HANDOFF]] (merge + hygiene + git rule) · [[BRUH_HOME]] semver **`1.1.30`**. |
+
+---
+
 ## 2026-04-14 — shadcn/ui MCP for Cursor (installed)
 
 | Topic | Notes |

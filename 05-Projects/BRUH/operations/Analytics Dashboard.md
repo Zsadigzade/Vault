@@ -1,7 +1,7 @@
 ---
 tags: [operations, analytics, dashboard, vercel, metrics]
 area: operations
-updated: 2026-04-05
+updated: 2026-04-14
 ---
 
 # Analytics Dashboard
@@ -19,7 +19,7 @@ updated: 2026-04-05
 | Item | Value |
 |------|--------|
 | Repo | `Zsadigzade/BRUH` monorepo |
-| DNS | CNAME `analytics` → Vercel (Netlify DNS zone for `bruhsocial.app`) |
+| DNS | CNAME `analytics` → `c8f692f5cc8b43e2.vercel-dns-017.com.` (Cloudflare DNS — Netlify removed Apr 2026) |
 | Env | `dashboard/.env` — same `VITE_SUPABASE_URL` + anon key as main app |
 | Headers | `dashboard/vercel.json` — nosniff, DENY frame, Referrer-Policy, Permissions-Policy |
 | CI deploy | `.github/workflows/vercel-dashboard.yml` — run Vercel CLI from **repo root**; GitHub secrets **`VERCEL_DASHBOARD_PROJECT_ID`**, `VERCEL_TOKEN`, `VERCEL_ORG_ID` (see [[Deploy Targets]] · `scripts/INCIDENT_RUNBOOK.md`) |

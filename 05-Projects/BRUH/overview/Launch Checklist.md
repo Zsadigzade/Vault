@@ -1,7 +1,7 @@
 ---
 tags: [overview, launch, checklist, secrets]
 area: overview
-updated: 2026-04-05
+updated: 2026-04-14
 ---
 
 # Launch Checklist
@@ -15,7 +15,7 @@ updated: 2026-04-05
 - [x] **Codemagic env vars** — **DONE 2026-04-13**: all 5 Vite public vars (`VITE_SUPABASE_URL/ANON_KEY`, `VITE_SENTRY_DSN`, `VITE_POSTHOG_KEY/HOST`) added to both workflows; `secrets` group imported for `SENTRY_AUTH_TOKEN` source map uploads; `sentryVitePlugin` guarded behind `!!SENTRY_AUTH_TOKEN`
 - [x] **`MIN_REGIONAL_USERS`** — already `5` in `generate-regional-challenges/index.ts` ([[Regional AI Challenges]])
 - [ ] Supabase Auth → **Leaked password protection** (HaveIBeenPwned) — **DEFERRED**: only matters for premium tier; remind when premium goes live
-- [ ] **`landing/u.html`**: confirm App Store numeric ID in `apple-itunes-app` meta if still placeholder ([[Deep Links & PWA]])
+- [x] **`landing/u.html`**: App Store ID `6761007303` confirmed in `apple-itunes-app` meta ✅
 
 ### Recurring: Apple Sign In JWT renewal
 > [!warning] Apple Sign In client secret JWT **expires 2026-09-26**. Regenerate using `generate-apple-jwt.mjs` (repo root) and update Supabase Apple provider → Secret Key before this date. See [[iOS & Android]] for key details.
@@ -30,10 +30,11 @@ updated: 2026-04-05
 | Bundle ID | `app.bruhsocial.app` |
 | Product | `bruh_pro_weekly` — $0.99/wk — see [[Monetization]] |
 | Test account | `applereview` / `BruhReview2026!` (custom password auth — rotate if policy changes) |
-| **Rejection (2026-03-25)** | Guideline **2.1** Information Needed — not policy violation; Apple requested documentation + recording |
-| **Resubmission** | Use [[App Review History]] — Terms/Privacy from subscription flow, white-screen fixes, native storage gate |
+| **Rejection (2026-03-25)** | Guideline **2.1** Information Needed — replied with recording + credentials |
+| **Rejection (2026-04-05)** | Guideline **3.1.2(c)** (Privacy Policy URL + EULA missing in ASC) + Guideline **2.1(b)** (IAP not responsive; Paid Apps Agreement missing) |
+| **Resubmission (2026-04-14)** | ✅ **IN REVIEW** — all issues resolved (see [[App Review History]]) |
 
-Screenshots: ensure **6.5"** set present in ASC.
+Screenshots: ✅ uploaded.
 
 ---
 

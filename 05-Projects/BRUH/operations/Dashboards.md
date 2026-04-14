@@ -1,7 +1,7 @@
 ---
 tags: [operations, admin, dashboards, vercel]
 area: operations
-updated: 2026-04-07
+updated: 2026-04-14
 ---
 
 # Dashboards — Ops Admin
@@ -18,7 +18,7 @@ updated: 2026-04-07
 | **Code** | `admin-web/` (Vite) |
 | **Host** | Vercel — GitHub `Zsadigzade/BRUH`, root **`admin-web`** |
 | **Security headers** | `admin-web/vercel.json` — **HSTS** + **CSP** (2026-04 hardening) |
-| **DNS** | Netlify DNS: **`admin`** CNAME → Vercel (not a Netlify site) |
+| **DNS** | Cloudflare DNS: **`admin`** CNAME → `a191df88897774c3.vercel-dns-017.com.` (Netlify fully removed Apr 2026) |
 | **Local** | `npm run dev:admin` from monorepo root |
 | **Consumer app** | **No** `/admin` — redirects home; admin UI **not** in PWA/APK |
 

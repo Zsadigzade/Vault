@@ -46,7 +46,7 @@ Local key: `~/.ssh/id_ed25519` (passphrase-protected — must enter passphrase i
 |-----------|---------|
 | **Ollama** | `qwen2.5-coder:1.5b` (986 MB — fits in 4 GB RAM). Systemd service + warmup service on boot. |
 | **SearxNG** | Docker, `localhost:8888`. Brave API key + SearxNG = dual search backends. |
-| **Python venv** | `/srv/vault/.venv` — `knowledge_update.py`, `vault_health.py`, `alert_on_failure.py` |
+| **Python venv** | `/srv/vault/.venv` — scripts: `scripts/knowledge_update.py`, `scripts/vault_health.py`, `scripts/alert_on_failure.py`, `scripts/sync.sh` |
 | **Alerts** | `alert_on_failure.py` → Resend API → `zsadigzade@gmail.com`. User-Agent: `curl/8.5.0` (Cloudflare bypass). |
 
 ---
@@ -110,6 +110,68 @@ After cleanup (2026-04-13): **23% used** (18 GB / 77 GB). Monitor — if > 70%, 
 df -h /
 ollama list
 ```
+
+---
+
+## Manual pipeline commands (qwen auto-learning)
+
+### SSH in
+```bash
+ssh root@46.101.161.176
+# enter id_ed25519 passphrase when prompted
+```
+
+### Helper — load vaultbot env + cd (run this first every session)
+```bash
+sudo -u vaultbot bash -c 'source /home/vaultbot/.vault_env && cd "$VAULT_ROOT" && exec bash'
+# now you're vaultbot with correct env and in /srv/vault
+```
+
+Or prefix every command individually (see below).
+
+### Sync vault (pull / push)
+```bash
+# Pull latest from GitHub → local /srv/vault
+sudo -u vaultbot bash -c 'source /home/vaultbot/.vault_env && cd "$VAULT_ROOT" && bash scripts/sync.sh --pull-only'
+
+# Push local /srv/vault → GitHub
+sudo -u vaultbot bash -c 'source /home/vaultbot/.vault_env && cd "$VAULT_ROOT" && bash scripts/sync.sh --push-only'
+```
+
+### Run knowledge update (qwen research + proposals)
+```bash
+# Standard run — up to 10 proposals written to 06-Inbox/pending/
+sudo -u vaultbot bash -c 'source /home/vaultbot/.vault_env && cd "$VAULT_ROOT" && /srv/vault/.venv/bin/python scripts/knowledge_update.py --max-per-run 10'
+
+# Force deep AI tooling scan (Sunday special)
+sudo -u vaultbot bash -c 'source /home/vaultbot/.vault_env && cd "$VAULT_ROOT" && /srv/vault/.venv/bin/python scripts/knowledge_update.py --topic ai_tooling --force'
+```
+
+### Run vault health check
+```bash
+sudo -u vaultbot bash -c 'source /home/vaultbot/.vault_env && cd "$VAULT_ROOT" && /srv/vault/.venv/bin/python scripts/vault_health.py'
+```
+
+### Check logs
+```bash
+tail -50 /var/log/vault-learn.log    # knowledge_update.py output
+tail -50 /var/log/vault-push.log     # sync --push-only output
+tail -50 /var/log/vault-pull.log     # sync --pull-only output
+tail -50 /var/log/vault-health.log   # vault_health.py output
+```
+
+### Check pending proposals
+```bash
+ls /srv/vault/06-Inbox/pending/
+```
+
+### Approve proposals (Claude Code — run locally, not on server)
+```
+/approve-inbox
+```
+Reads `06-Inbox/pending/`, reviews each with Claude, moves approved to their target path, commits + pushes.
+
+> [!warning] Always `sudo -u vaultbot` — root breaks `.git` ownership. Scripts live in `scripts/`, not vault root. Env vars (`$VAULT_ROOT` etc.) live in `/home/vaultbot/.vault_env` — must be sourced before any script.
 
 ---
 

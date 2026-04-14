@@ -2,12 +2,39 @@
 tags: [meta, session, handoff, wip, agent:entry]
 area: meta
 status: active
-updated: 2026-04-12
+updated: 2026-04-14
 ---
 
 # Session handoff
 
 > Read first in substantive BRUH sessions; update last before ending. **Vault-wide entry:** [[HOME]] · [[VAULT_CONSTITUTION]]. **Keep this file short** — depth: [[Chat System]] · [[Chat System — Performance]] · [[Push Notifications]] · [[Migrations Log]]. **Older April detail:** [[SESSION_HANDOFF — Extended 2026-04]].
+
+## Apr 2026-04-14 — `main` merge + branch hygiene
+
+| Area | Notes |
+|------|--------|
+| **CodeScene / Copilot branch → `main`** | Fast-forward merge (`ff86946`): splits for `MemeReplyPicker`, `PostDetail`, `GifBrowserSheet`, admin screens; `passwordAuth` / `oauthAuth` helpers; `klipy` sticker mappers; `videoStorySharing` MP4 `drawFrame` refactor. **`origin/copilot/current-version-20260413` deleted.** Build + **161** Vitest before push. |
+| **Git rule** | Feature branches merge **into `main` only** — do not merge `main` into feature branches (refresh with **rebase** + `--force-with-lease` if needed). |
+| **Removed** | **`gemini-integration`** (Gemini / dev-tools experiment, remote deleted). **`claude/agitated-johnson`** — worktree under `.claude/worktrees/` removed; local branch deleted (stale `1.1.16` bump, far behind `main`). |
+| **`security/enhancements`** | **Still on origin** — unmerged experiment (`audit.ts`, `auth.ts`, `rbac.ts`, `SECURITY_SETUP.md`). Not production; review or merge intentionally later. |
+| **Other `origin` branches** | **`design/new-ui`** (Figma) · **`imgbot`** · **`main`**. |
+
+---
+
+## Apr 2026-04-13 session changes (hooks, error_logs, Sentry)
+
+| Area | File(s) | Change |
+|------|---------|--------|
+| **RepliesInbox React #310** | `src/components/screens/RepliesInbox.tsx` | `postListItems` `useMemo` + list class consts moved **above** loading / offline / error **early returns** — fixes “Rendered more hooks than during the previous render” (regression from perf pass 3 `useMemo`). |
+| **JWT noise in `error_logs`** | `src/lib/supabaseErrorCapture.ts` | Do not capture JWT-expired class failures (`PGRST303`, `jwt expired`, etc.) — expected session churn, not ops incidents. |
+| **Push token upsert** | `src/lib/notifications.ts` | `savePushToken`: on JWT-style RPC error → `supabase.auth.refreshSession()` then **one** retry; still logs if retry fails. |
+| **Admin Error logs tab** | `error_logs` (Supabase) | Unresolved rows cleared after fixes (same React #310 + `push_tokens.upsert: JWT expired`). Ops: `npx supabase db query --linked "<sql>"`. |
+| **Sentry resolve API** | `.cursor/servers/sentry.mjs` | `resolve_issue` → `PUT /api/0/organizations/{org}/issues/{id}/` (project-scoped PUT returned **404**). |
+| **Sentry CLI helper** | `scripts/sentry-resolve-matching.mjs` | Reads `.cursor/.env.mcp.local`; lists unresolved; resolves title/culprit matches (optional `--dry-run`, `--pattern`). |
+
+Sentry: matching “more hooks” issues resolved in EU project via API after endpoint fix.
+
+---
 
 ## Apr 2026-04-11 session changes
 
@@ -32,7 +59,7 @@ Branch: **`design/new-ui`** (pushed, not merged to `main`). Build clean. Switch:
 - **DB:** Latest migration **`20260421120000_chat_leave_clears_messages`** — `messages_cleared_before TIMESTAMPTZ` on `conversation_participants`; `leave_conversation` stamps both `left_at` and `messages_cleared_before = NOW()`; `get_conversation_messages` filters `m.created_at >= v_cleared_before`. Prior: **`20260420120000_fortune_wheel_temp_premium`**. Drift → [[Migrations Log]].
 - **Client polish:** Premium motion pass shipped. **BottomNav** active-tab icon stroke uses shared SVG `linearGradient` with `gradientUnits="userSpaceOnUse"` (keeps Create (+) visible). **Chat / notifications:** composer Sticker icon; ChatList empty state + Create CTA; **Settings → Notifications** — mark all read, clear all w/ undo toast, swipe-to-delete, first-visit swipe hint.
 - **UI / Ads pass:** Create publish button — pulse-ring, shimmer, spring-bounce, spinner. **Fortune Wheel** → dedicated `/fortune-wheel` page (`FortuneWheelPage.tsx`); Profile shows styled button card. **Ad tiles** in GifBrowserSheet + MemeReplyPicker use `HiddenInterstitialAdGif` (~13% density, `pickAdSlots`). **Fortune Wheel SVG** overhaul: 8 slices with emoji + rotated labels; amber/gold premium slice; outer rim; golden pointer; non-rotating hub; pulsing glow.
-- **Performance pass 3 (Apr 2026-04-22):** `create_post_atomic` RPC, `ChallengesScreen` lazy, `postListItems` useMemo, ChatList lazy images + prefetch, `totalReplies` useMemo, `vendor-icons` chunk, `recommendViralMedia` 5-min cache, `chatUnreadTotal` staleTime 60 s. All 161 tests pass.
+- **Performance pass 3 (Apr 2026-04-22):** `create_post_atomic` RPC, `ChallengesScreen` lazy, `postListItems` useMemo (**must stay above any conditional returns** in `RepliesInbox`), ChatList lazy images + prefetch, `totalReplies` useMemo, `vendor-icons` chunk, `recommendViralMedia` 5-min cache, `chatUnreadTotal` staleTime 60 s. All 161 tests pass.
 
 ---
 
@@ -67,7 +94,7 @@ Branch: **`design/new-ui`** (pushed, not merged to `main`). Build clean. Switch:
 
 ## Last known state (pulse)
 
-- **Repo / semver:** `1.1.17` (`package.json` — current on `main`). **Active design branch:** `design/new-ui` (Figma redesign, not merged). Switch: `git checkout design/new-ui`. **Bump rule:** third segment **0–99** — **`1.0.99` → `1.1.0`**, never `1.0.100`. **`npm run version:bump`** → `scripts/bump-package-version.mjs`. → [[Capgo OTA]] · [[Commands & Scripts]].
+- **Repo / semver:** `1.1.30` (`package.json` on `main` as of merge; Capgo OTA may lag until next push). **CodeScene refactor** from former `copilot/current-version-20260413` is **on `main`**. **Design branch:** `design/new-ui` (not merged). **`security/enhancements`** — experimental branch only. **Bump rule:** third segment **0–99** — **`1.0.99` → `1.1.0`**, never `1.0.100`. **`npm run version:bump`** → `scripts/bump-package-version.mjs`. → [[Capgo OTA]] · [[Commands & Scripts]].
 - **Client shell:** 3 tabs in `Index.tsx` — **Chat** (0) · **Create** (1, default) · **Profile** (2). Create: single CTA (publish → green "Link Copied!" → share image); pulse-ring + shimmer. ProfileTab: Fortune wheel button card → `/fortune-wheel`. Bottom nav: unread badges, gradient stroke on active tab. → [[App Architecture]].
 - **Settings:** Hub (`SettingsScreen.tsx`). All subpages share `SettingsSubpageShell`. Delete account uses `headerTone="danger"`. Tours wired.
 - **Chat (native):** `ChatThread` scroll FAB portaled; `ChatBubble` long-press scoped to bubble only; `ChatInput` refocus after send; `notifications.ts` — `clearChatNotifications`, `setActiveChatConversationId`. Edge `send-push-notification` chat branch deployed. → [[Chat System]].

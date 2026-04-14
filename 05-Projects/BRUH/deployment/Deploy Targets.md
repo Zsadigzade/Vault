@@ -48,7 +48,7 @@ cd landing && npx vercel --prod
 ### DNS Configuration
 **DNS**: Cloudflare (`alexia.ns.cloudflare.com` / `harvey.ns.cloudflare.com`)
 **Registrar**: GoDaddy (nameservers only — no DNS management there)
-Full canonical record set → memory `dns_records.md`
+Full canonical record set → vault [[DNS Records]]
 
 #### Add/edit DNS records
 Cloudflare dashboard → `bruhsocial.app` zone, or API:

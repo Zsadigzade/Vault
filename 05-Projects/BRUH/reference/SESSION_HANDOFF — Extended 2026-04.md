@@ -2,12 +2,25 @@
 tags: [meta, session, handoff, archive]
 area: meta
 status: reference
-updated: 2026-04-12
+updated: 2026-04-14
 ---
 
 # Session handoff — extended (2026-04)
 
 > **Default entry point:** [[SESSION_HANDOFF]] (short). Open only for **older milestone detail** without loading the full pulse into context.
+
+---
+
+## App Store submission + Codemagic fixes (2026-04-14)
+
+- **App submitted for review** (2026-04-14) — second resubmission after two rejections
+- Paid Apps Agreement signed by colleague; IAP tested in sandbox ✅
+- ASC: Privacy Policy URL + EULA pasted; screenshots uploaded; screen recording sent in reply
+- **Codemagic fixes:** Doppler token rotated (`codemagic-ci-2`); auth switched to Bearer header; Codecov URL → `macos`; explicit `pod install` step removed (Cap8 uses SPM — `cap sync` handles it)
+- **NativeAdPlugin.swift** — full GMA SDK v12 migration: all `GAD*` prefixes stripped; private delegate renamed `NativeAdPluginLoaderDelegate` to avoid `NativeAdLoaderDelegate` collision
+- **Info.plist** — `UISupportedInterfaceOrientations~ipad` all 4 orientations + `UIRequiresFullScreen=true` (ASC validation was failing on this)
+- **Landing pages** — all store links updated: `apps.apple.com` → `apps.apple.com/app/id6761007303`; `play.google.com` → full Play Store URL; Play Store link added in Terms (Android subscription management)
+- → [[Codemagic CI]] · [[App Review History]] · [[iOS & Android]]
 
 ---
 

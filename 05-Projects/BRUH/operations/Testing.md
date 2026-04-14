@@ -1,7 +1,7 @@
 ---
 tags: [operations, testing, vitest, quality]
 area: operations
-updated: 2026-04-06
+updated: 2026-04-14
 ---
 
 # Testing
@@ -55,6 +55,22 @@ import { renderWithProviders } from "@/test/testUtils";
 | **`vi.mock`** | Only at module top (hoisted). |
 | **`hideMeme`** | Async; keys `bruh_hidden_memes_<uid>`. |
 | **Paste in jsdom** | Often doesn’t update controlled inputs — mock or alternate assertion. |
+
+---
+
+## Coverage (added 2026-04-13)
+
+```bash
+npx vitest run --coverage   # generates coverage/lcov.info
+```
+
+- Provider: `@vitest/coverage-v8@3.2.4` — **must** match Vitest version exactly.
+- `coverage/` is gitignored. Codemagic uploads to Codecov automatically (`CODECOV_TOKEN` in secrets group).
+- **161 tests** pass as of 2026-04-13.
+
+### Dependency fixes applied (2026-04-13)
+- `minimatch` override bumped `^3.1.4 → ^10.0.0` (test-exclude needed v10)
+- `@testing-library/dom` added (was missing; broke 3 component test files)
 
 ---
 

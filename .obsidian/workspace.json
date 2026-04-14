@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "f26ad318756e9a2e",
+        "id": "8b7098eae23378d8",
         "type": "tabs",
         "children": [
           {
-            "id": "81222f052cc25866",
+            "id": "9a9880d881800697",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -74,7 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 522.5110321044922
   },
   "right": {
     "id": "0d086c61e816809f",
@@ -178,8 +178,26 @@
       "bases:Create new base": false
     }
   },
-  "active": "81222f052cc25866",
+  "active": "c096617ad8d406b3",
   "lastOpenFiles": [
+    "04-Knowledge/KB-Business/Growth-Loops.md.tmp.6836.1776157275476",
+    "04-Knowledge/KB-Business/Pricing-Strategy.md.tmp.6836.1776157261035",
+    "04-Knowledge/KB-Business/Go-To-Market-Channels.md.tmp.6836.1776157248961",
+    "04-Knowledge/KB-AI/Cursor Tips & Power Features.md.tmp.6836.1776157237370",
+    "05-Projects/BRUH/deployment/Codemagic CI.md.tmp.6836.1776157223290",
+    "05-Projects/BRUH/security/App Review History.md.tmp.6836.1776157213099",
+    "05-Projects/BRUH/features/Monetization.md.tmp.6836.1776157200803",
+    "06-Inbox/pending/learn-2026-04-14-fcd6b2a0-founder-mental-health-burnout-.md",
+    "06-Inbox/pending/learn-2026-04-14-cb7f69b7-vector-databases-embeddings-se.md",
+    "06-Inbox/pending/learn-2026-04-14-c3faf6aa-cursor-ai-ide-features-rules-m.md",
+    "06-Inbox/pending/learn-2026-04-14-bb74b3c6-social-app-growth-strategies-v.md",
+    "06-Inbox/pending/learn-2026-04-14-b642a40e-meme-sharing-app-trends-short-.md",
+    "05-Projects/BRUH/operations/DO Vault Server.md",
+    "05-Projects/BRUH/operations/DO Vault Server.md.tmp.6836.1776155711093",
+    "05-Projects/BRUH/features/Monetization.md.tmp.6836.1776155341718",
+    "05-Projects/BRUH/operations/Developer Tools & GitHub Education.md",
+    "05-Projects/BRUH/operations/Developer Tools & GitHub Education.md.tmp.6836.1776155333488",
+    "Install Termius.exe",
     "06-Inbox/pending/learn-2026-04-13-4c1177e1-local-llm-inference-optimizati.md",
     "06-Inbox/pending/learn-2026-04-13-faaa3d03-ollama-new-models-releases-ben.md",
     "06-Inbox/pending/learn-2026-04-13-f1b19b49-multi-agent-ai-systems-orchest.md",
@@ -191,11 +209,6 @@
     "06-Inbox/pending/learn-2026-04-13-bbbc6c76-mobile-app-push-notifications-.md",
     "06-Inbox/pending/learn-2026-04-13-aab211b5-supabase-new-features-realtime.md",
     "06-Inbox/pending/learn-2026-04-13-9f36184e-deep-work-productivity-systems.md",
-    "scripts/knowledge_update.py.tmp.1448.1776074203840",
-    "scripts/knowledge_update.py.tmp.1448.1776073040174",
-    "scripts/alert_on_failure.py",
-    "bruh-upload-key.jks",
-    "04-Knowledge/KB-AI/WATCH_TOPICS.md.tmp.1448.1776071031426",
     "06-Inbox/pending/learn-2026-04-13-4f2e0029-prompt-engineering-techniques-.md",
     "06-Inbox/pending/learn-2026-04-13-91b056fc-react-18-19-performance-patter.md",
     "06-Inbox/pending/learn-2026-04-13-8e431c1b-supabase-rls-row-level-securit.md",
@@ -203,19 +216,6 @@
     "06-Inbox/pending/learn-2026-04-13-6c6001e3-growth-loops-viral-coefficient.md",
     "06-Inbox/pending/learn-2026-04-13-66ed4d1f-product-market-fit-discovery-s.md",
     "06-Inbox/pending/learn-2026-04-13-535676d9-model-context-protocol-mcp-ser.md",
-    "06-Inbox/pending/learn-2026-04-13-5128ce81-behavioral-economics-nudge-the.md",
-    "06-Inbox/pending/learn-2026-04-13-415e8eb5-vite-build-optimization-bundle.md",
-    "06-Inbox/pending/learn-2026-04-13-19961607-llm-benchmark-mmlu-humaneval-l.md",
-    "06-Inbox/pending/learn-2026-04-13-1581d3c0-ai-agent-frameworks-2025-best-.md",
-    "01-Agents/SESSION_HANDOFF.md",
-    "scripts/vault_health.py",
-    "scripts/vault_health.py.tmp.17952.1776037972545",
-    "scripts/approve_inbox.py",
-    "scripts/approve_inbox.py.tmp.17952.1776037934578",
-    "scripts/run_workflow.py",
-    "Templates/Weekly Review Template.md",
-    "Templates/Inbox Capture Template.md",
-    "Templates/Knowledge Note Template.md",
     "caveman-main/caveman-main/plugins/caveman/skills/caveman/assets/caveman-small.svg",
     "caveman-main/caveman-main/plugins/caveman/skills/caveman/assets/caveman.svg",
     "caveman-main/caveman-main/plugins/caveman/assets/caveman.svg",

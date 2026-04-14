@@ -1,7 +1,7 @@
 ---
 tags: [deployment, codemagic, ios, ci, cd]
 area: deployment
-updated: 2026-04-05
+updated: 2026-04-14
 ---
 
 # Codemagic CI
@@ -42,6 +42,34 @@ updated: 2026-04-05
 - Keystore: `android_signing` group in Codemagic UI — `CM_KEYSTORE_PASSWORD`, `CM_KEY_ALIAS`, `CM_KEY_PASSWORD`, `BRUH_KEYSTORE` (file). ✅ Configured.
 - **google-services.json** in repo for FCM (Android build).
 - **`PACKAGE_NAME` / applicationId:** must be **`com.bruh.app`** in `codemagic.yaml` / Gradle (2026-04 repo fix — was incorrectly `app.bruh.social`-style id).
+
+---
+
+## Doppler secrets injection (added 2026-04-13, token rotated 2026-04-14)
+
+Secrets are injected at build time via Doppler REST API — no hardcoded secrets in yaml.
+
+```yaml
+- name: Inject secrets from Doppler
+  script: |
+    curl -fsSL \
+      -H "Authorization: Bearer $DOPPLER_TOKEN" \
+      "https://api.doppler.com/v3/configs/config/secrets/download?project=bruh&config=prd&format=env&no_file=true" \
+      > .env
+```
+
+- `DOPPLER_TOKEN` → Codemagic UI → `secrets` group
+- Token name in Doppler: **`codemagic-ci-2`** (prd, read-only) — old `codemagic-ci` was revoked 2026-04-14
+- Auth uses `Authorization: Bearer` header (not `--user`) — avoids macOS curl exit-56 quirk on 401
+
+> [!warning] If build fails with curl 401 on Inject step: regenerate service token in Doppler (`doppler configs tokens create`) and update `DOPPLER_TOKEN` in Codemagic `secrets` group.
+
+---
+
+## Codecov (fixed 2026-04-14)
+
+- Binary URL: `https://uploader.codecov.io/latest/macos/codecov` — M2 runs via Rosetta 2
+- Was broken: `linux` binary (wrong OS), then `macos-arm64` (path doesn't exist in GCS)
 
 ---
 
@@ -96,6 +124,15 @@ updated: 2026-04-05
 | App Store Connect App ID | `6761007303` |
 | Bundle ID | `app.bruhsocial.app` |
 | Play package | `com.bruh.app` |
+
+---
+
+## iOS Signing — auto vs manual — 2026-04-14
+
+- **Automatic (recommended)**: Codemagic connects to ASC via API → fetches certs + provisioning profiles automatically; no manual keychain steps in `codemagic.yaml`
+- **Manual fallback**: `keychain add-certificates --certificate /tmp/certificate.p12 --certificate-password <pwd>` then set env vars in Codemagic UI
+- Declarative `codemagic.yaml` syntax compresses complex signing flows into minimal config — prefer over legacy GUI workflows
+- Source: [Codemagic iOS signing docs](https://docs.codemagic.io/yaml-code-signing/signing-ios/)
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 tags: [home, index, cheatsheet, agent:hub]
 area: meta
-updated: 2026-04-13
+updated: 2026-04-14
 aliases: ["🏠 Home", "HOME", "BRUH Home"]
 ---
 
@@ -24,7 +24,7 @@ aliases: ["🏠 Home", "HOME", "BRUH Home"]
 | iOS Team ID | `39FVY58F26` |
 | Capgo App ID | `com.bruh.app` |
 | GitHub repo | `Zsadigzade/BRUH` |
-| Shipped app semver | `1.1.24` (`BRUH/package.json` on disk — Capgo OTA may differ until sync) |
+| Shipped app semver | `1.1.30` (`BRUH/package.json` on `main` — Capgo OTA may differ until next OTA push) |
 
 ---
 
@@ -56,7 +56,7 @@ npx supabase ...                     # always npx (Windows EPERM); Netlify fully
 npx cap sync
 npm run cap:sync:ios                 # iOS: includes NativeAd packageClassList fix
 npx vitest run src/test/<file>.test.ts
-npm run test                         # full Vitest ~155 — only when user asks or broad change
+npm run test                         # full Vitest ~161 — only when user asks or broad change
 npx npm-check-updates --target minor -u && npm install   # refresh deps within current majors; detail [[Commands & Scripts]] § npm
 ```
 
@@ -182,6 +182,7 @@ Stack-wide topics (not BRUH-specific): [[📚 Knowledge Base]] → open **one** 
 | [[Testing]] | Vitest, mocks |
 | [[Sentry]] | Error tracking |
 | [[Incident Response & Debugging]] | Common errors, debugging, incident checklist |
+| [[Developer Tools & GitHub Education]] | All active dev services: BrowserStack, Appfigures, Doppler, Codecov, POEditor, Imgbot, CodeScene, GitLens, Termius |
 
 ### Reference
 | [[Critical Gotchas]] | Anti-patterns |

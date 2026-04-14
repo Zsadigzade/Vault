@@ -1,7 +1,7 @@
 ---
 tags: [architecture, react-query, realtime, cache, storage]
 area: architecture
-updated: 2026-04-03
+updated: 2026-04-14
 ---
 
 # Data Layer
@@ -68,6 +68,7 @@ Single channel per user: `realtime-ctx-${userId}` in `RealtimeContext.tsx`
 | Admin action | Various | Invalidate `ADMIN_BADGES_QUERY_KEY` |
 | Cold-start session race | `App.tsx` after `validateUserSession` | Invalidate `MY_POSTS_QUERY_KEY` |
 | Navigate to post (~150ms early) | `RepliesInbox` `onPointerDown` | `prefetchInfiniteQuery(postDetailQueryKey)` |
+| Open chat thread | `ChatList` `onPointerDown` | `prefetchInfiniteQuery(chatMessagesQueryKey)` — same staleTime (15s) as ChatThread's query |
 
 ### prevRef Invalidation Pattern
 Used to trigger query invalidation from realtime context values (timestamps, counters) without running on every render:

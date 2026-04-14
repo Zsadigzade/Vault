@@ -109,3 +109,12 @@ User engages with feature
 - **PLG vs sales-led** — PLG: lower CAC, longer ramp; sales-led: faster enterprise revenue, higher CAC
 - **Mixpanel 2026 PLG guide** — add virality measurement by cohort; virality often improves as product matures
 - Source: [ProdPad growth loops](https://www.prodpad.com/blog/growth-loops/), [Mixpanel PLG 2026](https://mixpanel.com/blog/product-led-growth/)
+
+## Social App Retention & Viral — 2026-04-14
+
+- **andrewchen principle**: highest retention products are empirically the most viral — retention IS the growth lever, not separate from it
+- **D7–D30 retention** is the primary metric to track post-ATT (attribution harder; retention is observable)
+- **Daily engagement hooks**: streaks, leaderboards, achievement badges — keep users returning, which compounds virality
+- **Referral programs**: optimise incentive + make sharing seamless + measure continuously; don't set and forget
+- **Post-ATT measurement**: plan for ATT + AdAttributionKit + Privacy Sandbox — UA mix must account for signal loss
+- Source: [andrewchen.com retention→viral](https://andrewchen.com/more-retention-more-viral-growth/), [maciejturek.com app growth 2026](https://maciejturek.com/resources/app-growth-strategy-2025.html)

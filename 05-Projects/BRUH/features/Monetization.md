@@ -179,9 +179,19 @@ Custom Capacitor plugin (`NativeAdPlugin`) wrapping Google Mobile Ads Native Adv
 | Stickers | Klipy | GIPHY |
 
 ### Pending
-- Configure UMP consent form for EU/GDPR (AdMob console) before EU launch
 - Add mediation networks (Meta Audience Network, AppLovin) for better fill rates
-- `landing/app-ads.txt` live at `https://bruhsocial.app/app-ads.txt` (306 entries)
+
+### Resolved
+- ✅ **UMP consent form** configured (AdMob console) — 2026-04-13
+- ✅ **app-ads.txt** — `google.com, pub-1146372347903589, DIRECT, f08c47fec0942fa0` added as first entry — 2026-04-14 (commit `a435e3b`). Live at `https://bruhsocial.app/app-ads.txt` (307 entries). AdMob re-crawl pending; allow up to 24h.
+
+## AdMob Mediation — 2026-04-14
+
+- Waterfall calls ad sources one-by-one based on average eCPM you set (not what source is willing to pay) — static ordering can leave money on the table
+- **Hybrid setup recommended**: combine bidding (real-time auction) + waterfall for supported partners; bidding eCPMs are auto-optimised, waterfall eCPMs are manual
+- To optimise a waterfall source: input ad source credentials so AdMob can gather historical eCPM data
+- Consider eCPM floor ad units to filter low-value fills
+- Sources: [AdMob mediation guide](https://support.google.com/admob/answer/13420272), [waterfall optimisation](https://support.google.com/admob/answer/7374110)
 
 ---
 

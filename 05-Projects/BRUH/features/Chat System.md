@@ -1,7 +1,7 @@
 ---
 tags: [features, chat, dm, premium, native]
 area: features
-updated: 2026-04-07
+updated: 2026-04-14
 ---
 
 # Chat System
@@ -31,7 +31,10 @@ updated: 2026-04-07
 
 ## Database (repo)
 
-**Migrations:** `20260415120000_chat_system` · `20260416180000_chat_improvements` · **`20260417120000_chat_performance`** ([[Migrations Log]] · [[Chat System — Performance]])
+**Migrations:** `20260415120000_chat_system` · `20260416180000_chat_improvements` · `20260417120000_chat_performance` · **`20260418120000_chat_reliability_and_security`** ([[Migrations Log]] · [[Chat System — Performance]])
+
+### Latest migration (2026-04-18) — reliability & security
+`get_conversation_messages` outer ORDER BY fixed; `get_chat_unread_total` RPC added; `send_chat_message`: advisory lock per sender, **15/min** burst, **2000** char cap, `https://` GIF URL enforcement, daily limit after lock; `toggle_chat_reaction`: emoji UTF-8 **≤32** bytes.
 
 | Object | Notes |
 |--------|--------|
@@ -54,6 +57,19 @@ updated: 2026-04-07
 **Native UX (2026-04):** After send, keyboard stays open (`ChatInput` — prevent focus steal on send/GIF buttons + refocus textarea). **GIF/sticker picker** — Lucide **`Sticker`** icon (not `ImagePlus`) opens **`GifBrowserSheet`**. **`clearChatNotifications(conversationId)`** + **`setActiveChatConversationId`** in **`src/lib/notifications.ts`** — opening a thread clears matching delivered OS pushes; foreground chat push skips Sonner if user is already in that thread. **ChatList** — `data-swipe-row`; mute/leave strip `opacity-0` until swipe; touch `stopPropagation` + **`Index.tsx`** ignores horizontal tab swipe when target is inside swipe row. **Origin meme** in thread context card → tap opens **`GifPreviewModal`**. **Empty list** — full-height **`EmptyState`** with **`emojiFloat`**, **`chat.emptyHint`**, CTA **Create a post** → **`onGoCreate`** switches **`Index`** to Create tab (1).
 
 **Deferred:** online dot on **ChatList** avatars.
+
+---
+
+## Client — do not regress
+
+| Area | Behavior |
+|------|----------|
+| **`ChatInput.tsx`** | `cancelQueries` before optimistic row; `onSendStart`/`onSendEnd` (parent defers refetch while send in flight); `onSendEnd` before `onSent` so pending count is 0 before `invalidateQueries`; brief `_status: "sent"` + `mountedRef` |
+| **`ChatThread.tsx`** | `scheduleChatMessagesRefetch` defers if `pendingSendsRef > 0`; flush on end; reactions realtime ~1500ms debounce vs ~450ms for messages; **optimistic reactions** + rollback; **optimistic delete**; `patchMessageAcrossPages` |
+| **`ChatBubble.tsx`** | `reactionsEqual` value compare in memo (not reference) |
+| **`chat.ts`** | `fetchChatUnreadTotal` → RPC `get_chat_unread_total` |
+
+> [!warning] **Anti-pattern:** `invalidateQueries(chat-messages)` while another user's realtime event fires **during** an in-flight `send_chat_message` without defer/cancel → can wipe optimistic rows. Always defer with `onSendStart`/`onSendEnd`.
 
 ---
 

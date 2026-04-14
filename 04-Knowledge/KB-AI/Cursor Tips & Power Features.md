@@ -98,6 +98,17 @@ updated: 2026-04-14
 
 ---
 
+## AI Coding Tools Comparison — 2026-04-14
+
+- **The quartet** (Cursor best practice): MCPs + Rules (`.cursor/rules/*.mdc`) + Memories + Auto-run — configure all four at project start for full context control
+- **Cursor Enterprise**: global model access controls, MCP controls, system-level agent rules; supports OpenAI/Anthropic/Gemini/xAI
+- **GitHub Copilot** ranked best overall for most developers in 2025 (artificialanalysis.ai + thedroidsonroids.com benchmarks) — most consistent, fewer context-loss issues
+- **Cursor weakness**: context forgetting between sessions — project structure / prior work lost (Reddit r/ChatGPTCoding, Feb 2025)
+- **BYOM support**: Cline, Continue, Aider, Goose support bring-your-own-model; Copilot does not
+- Source: [artificialanalysis.ai coding agents](https://artificialanalysis.ai/agents/coding), [Cursor complete guide 2025](https://medium.com/@hilalkara.dev/cursor-ai-complete-guide-2025-real-experiences-pro-tips-mcps-rules-context-engineering-6de1a776a8af)
+
+---
+
 ## See also
 
 - [[Context Window Management]] · [[Prompt Patterns for Code]] · [[Agent Debugging Strategies]] · [[Claude Code CLI Reference]] · [[12 - MCP & External APIs]]
