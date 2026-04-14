@@ -57,13 +57,17 @@ fi
 
 # ── Run learning agent ─────────────────────────────────────────────────────
 
-log "Running knowledge update..."
-if [ "$DRY_RUN" = true ]; then
-  log "[DRY-RUN] Would run: python scripts/knowledge_update.py --max-per-run 10"
+if [ "$PUSH_ONLY" = false ]; then
+  log "Running knowledge update..."
+  if [ "$DRY_RUN" = true ]; then
+    log "[DRY-RUN] Would run: python scripts/knowledge_update.py --max-per-run 10"
+  else
+    python3 scripts/knowledge_update.py --max-per-run 10 2>&1 | tee -a "$LOG_FILE" || {
+      log "WARNING: knowledge_update.py failed (non-fatal)"
+    }
+  fi
 else
-  python3 scripts/knowledge_update.py --max-per-run 10 2>&1 | tee -a "$LOG_FILE" || {
-    log "WARNING: knowledge_update.py failed (non-fatal)"
-  }
+  log "Push-only mode — skipping knowledge update."
 fi
 
 # ── Commit new inbox items ─────────────────────────────────────────────────

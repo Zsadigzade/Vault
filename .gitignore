@@ -10,6 +10,11 @@ desktop.ini
 # .obsidian/workspace.json
 # .obsidian/workspace-mobile.json
 
+# Python venv — server-side, never commit
+.venv/
+__pycache__/
+*.pyc
+
 # Secrets — never commit
 *.pem
 .env
